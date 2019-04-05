@@ -1,4 +1,4 @@
-![banner.png](https://steemitimages.com/640x0/https://res.cloudinary.com/hpiynhbhq/image/upload/v1515886103/kmzfcpvtzuwhvqhgpyjp.png)
+![banner.png](https://www.digifloor.com/wp-content/uploads/2016/07/python-banner.jpg)
 
 ---
 
@@ -7,10 +7,11 @@ https://github.com/python
 
 #### What will I learn
 
-- Basics of websockets
-- Subscribing to data feeds
-- Processing messages
-- Return top bid/ask
+- Workspace
+- Virtual environment
+- Reading files
+- Part one: int(), map(), sum()
+- Part two
 
 
 #### Requirements
@@ -29,7 +30,7 @@ https://github.com/python
 
 #### Preface
 
-This tutorial is part of a course where solutions to puzzles from [Advent of Code 2018](https://adventofcode.com/2018/) are discussed to explain programming techniques using Python. Each puzzle contains two parts. It is recommended to try out the puzzle first before going over the tutorial. Puzzles are a great and fun way to learn about programming.
+This tutorial is part of a course where solutions to puzzles from [Advent of Code 2018](https://adventofcode.com/2018/) are discussed to explain programming techniques using Python. Each puzzle contains two parts and comes with user specific inputs. It is recommended to try out the puzzle first before going over the tutorial. Puzzles are a great and fun way to learn about programming.
 
 While the puzzles start of relatively easy and get more difficult over time. Basic programming understanding is required. Such as the different type of variables, lists, dicts, functions and loops etc. A course like [Learn Python2 from Codeacademy](https://www.codecademy.com/learn/learn-python) should be sufficient. Even though the course is for Python two, while Python 3 is used.
 
@@ -41,8 +42,8 @@ Download the files from Github and install the virtual environment
 
 ```
 $ cd ~/
-$ git clone https://github.com/Juless89/tutorials-websockets
-$ cd tutorials-websockets
+$ git clone https://github.com/Juless89/tutorials-aoc.git
+$ cd tutorials-aoc
 $ pipenv install
 $ pipenv shell
 $ cd part_1
@@ -54,10 +55,12 @@ A good code editor is essential for any programmer to be able to work effectivel
 
 To add the this course go to `File>Open Workspace...` and add the base folder.
 
+![Screenshot-2019-04-05-20.58.29.png](https://cdn.steemitimages.com/DQmctYbBdMLaAftEkjHwRgqj4cJVh2HoS9mi8i7mC52cxq5/Screenshot-2019-04-05-20.58.29.png)
+
 
 #### Virtual environment
 
-Python comes in different versions ans allows for many different packages to be imported. A virtual environment allows the user to keep track and manage these versions and packages without them inteferring with each other. This keeps applications isolated from each other, making changes to one virtual environment won't possible corrupt another.
+Python comes in different versions and allows for many different packages to be imported. A virtual environment allows the user to keep track and manage these versions and packages without them interfering with each other. This keeps applications isolated from each other, making changes to one virtual environment won't possible corrupt another.
 
 This course will be using `pipenv`.
 
@@ -73,9 +76,11 @@ brew install pipenv
 Create a new virtual environment inside a folder with `pipenv install`, enter the virtual environment with `pipenv shell` and exit the virtual evironment with `exit`. An active virtual evironment is highlighted by `(base_folder_)name`.
 
 
+![Apr-05-2019 21-02-10.gif](https://cdn.steemitimages.com/DQmYUvgWLoDnZfNLkr2b5AaRRxfRwFdddWJUTpbrjDEnqSw/Apr-05-2019%2021-02-10.gif)
+
 #### Reading files
 
-As most of the puzzles come with huge inputs best practise is to seperate this into a separte file. For each puzzle the input will be stored inside `input.txt`. When dealing with files the user has to account for closing the file after use and exceptions. This can be simplified by using a `with` statement. "The with statement simplifies exception handling by encapsulating common
+As most of the puzzles come with huge inputs best practise is to separate this into a separate file. For each puzzle the input will be stored inside `input.txt`. When dealing with files the user has to account for closing the file after use and exceptions. This can be simplified by using a `with` statement. "The with statement simplifies exception handling by encapsulating common
 preparation and cleanup tasks."
 
 ```
@@ -95,7 +100,7 @@ with open('input.txt', 'r') as file:
 ```
 `list()` convert the file to a list.
 
-#### part one
+#### Part one: int(), map(), sum()
 For part one of puzzle one a list with frequency changes is given `+1, -2, +3, +1`. Where each input represents a change to the current frequency.
 
 > Starting with a frequency of zero, what is the resulting frequency after all of the changes in frequency have been applied?
@@ -138,7 +143,7 @@ def part_1(lines):
     return sum(map(int, lines))
 ```
 
-#### part two
+#### Part two
 
 
 > You notice that the device repeats the same frequency change list over and over. To calibrate the device, you need to find the first frequency it reaches twice.
@@ -179,6 +184,7 @@ Run the code with:
 
 It takes a while for the 2nd answer to be calculated.
 
+![Screenshot 2019-04-05 20.54.50.png](https://cdn.steemitimages.com/DQmUpLSmtL9X7uL7f2vzkyTTUA9aKSi8BdHgr7RcXmoE62E/Screenshot%202019-04-05%2020.54.50.png)
 
 
 
