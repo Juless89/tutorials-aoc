@@ -11,7 +11,6 @@ https://github.com/python
 - Virtual environment
 - Reading files
 - Part one: int(), map(), sum()
-- Part two
 
 
 #### Requirements
@@ -42,8 +41,8 @@ Download the files from Github and install the virtual environment
 
 ```
 $ cd ~/
-$ git clone https://github.com/Juless89/tutorials-aoc.git
-$ cd tutorials-aoc
+$ git clone https://github.com/Juless89/tutorials-websockets
+$ cd tutorials-websockets
 $ pipenv install
 $ pipenv shell
 $ cd part_1
@@ -190,6 +189,6 @@ It takes a while for the 2nd answer to be calculated.
 
 ---
 
-The code for this tutorial can be found on [Github](https://github.com/Juless89/tutorials-websockets)!
+The code for this tutorial can be found on [Github](https://github.com/Juless89/tutorials-aoc)!
 
 This tutorial was written by @juliank.
