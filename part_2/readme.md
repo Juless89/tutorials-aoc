@@ -42,8 +42,8 @@ Download the files from Github and install the virtual environment
 
 ```
 $ cd ~/
-$ git clone https://github.com/Juless89/tutorials-websockets
-$ cd tutorials-websockets
+$ git clone https://github.com/Juless89/tutorials-aoc
+$ cd tutorials-aoc
 $ pipenv install
 $ pipenv shell
 $ cd part_2
