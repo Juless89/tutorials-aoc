@@ -43,11 +43,11 @@ This puzzle is about guards that are performing a shift and fall asleep during t
 
 > Strategy 1: Find the guard that has the most minutes asleep. What minute does that guard spend asleep the most? What is the ID of the guard you chose multiplied by the minute you chose?
 
-Taken from the puzzle question the total amount of minutes and the frequency per minute are needed to answer this question. To store this data defaultdicts will be used.
+Taken from the puzzle question the total amount of `minutes` and the `frequency` per minute are needed to answer this question. To store this data `defaultdicts` will be used.
 
 #### What are defaultdicts?
 
-Unlike normal dicts when creating a new key, value pair or asking for a key that does not exist. Insteed of an error a default value will be returned or set. In the case one wants to increment a value inside the dict. If the key does not exist it will be added to the default value. 
+Unlike normal dicts when creating a new `key`, `value` pair or asking for a `key` that does not exist. Insteed of an error a default `value` will be returned or set. In the case one wants to increment a `value` inside the dict. If the key does not exist it will be added to the default `value`. 
 
 ```
 from collections import defaultdict
@@ -58,9 +58,10 @@ from collections import defaultdict
 totals = defaultdict(int)
 frequency = defaultdict(lambda: defaultdict(int))
 ```
+<br>
+In python `lamba` is used to pass a function. In this case it creates a new `defaultdict` when the default value is called. Thereby creating a nested dict structure. However, the nested dict is not created until the the first time a new key is called.
 
-In python `lamba` is used to pass a function. In this case it creates a new defaultdict when the default value is called. Thereby creating a nested dict structure. However, the nested dict is not created until the the first time a new key is called.
-
+![Apr-11-2019 20-20-06.gif](https://cdn.steemitimages.com/DQme1pN49EAJNXB7LrXqvJTGoZikrjQmqr94R6JHtKabWWH/Apr-11-2019%2020-20-06.gif)
 
 #### Extracting arguments with re.search
 
@@ -72,7 +73,7 @@ The input for this puzzle has again become more complicated than seen so far. It
 [1518-11-01 00:25] wakes up
 ```
 
-Each line contains a timestamp and an action. There are three different actions. When a guard starts a shift, the guard ID has to be extraced. If `asleep` or `wakes` is inside the line the start and end minute can be extracted. 
+Each line contains a `timestamp` and an action. There are three different actions. When a guard starts a shift, the guard ID has to be extraced. If `asleep` or `wakes` is inside the line the start and end minute can be extracted. 
 
 ```
 # sort lines by timestamp
@@ -94,9 +95,9 @@ for line in sorted(lines):
             frequency[guard][m] += 1
 ```
 
-The input does not come sorted. Python is clever enough to recognize the timestamp at the start of each line. To sort the input only `sorted()` had to be applied to the list of lines. Extracting the minute and guard id is done by using `re.search()`. Which requires a pattern and a string. `r':(\d+)` takes all digits after the `:` and `r'#(\d+)'` does the same but after a `#`. This functions returns a match object, to retrieve the value `group(1)` has to be called on the object.
+The input does not come `sorted`. Python is clever enough to recognize the timestamp at the start of each line. To sort the input only `sorted()` had to be applied to the list of lines. Extracting the `minute` and `guard` id is done by using `re.search()`. Which requires a pattern and a string. `r':(\d+)` takes all digits after the `:` and `r'#(\d+)'` does the same but after a `#`. This functions returns a match object, to retrieve the value `group(1)` has to be called on the object.
 
-When the input is sorted, whenever a guard wakes up all data for this shift is done and the guard can be added to the dicts. This is done for the range start, end. Which included the start minute but excludes the end minute.
+When the input is `sorted`, whenever a guard wakes up all data for this shift is done and the guard can be added to the dicts. This is done for the range `start`, `end`. Which included the start minute but excludes the end minute.
 
 #### Retrieving the max value of a dict
 
@@ -123,13 +124,15 @@ def part_1(totals, frequency):
 
 `itemgetter(1)` sets the index to 1, that of the value. Since the actual max value is not required, it just needs to be sorted by this value. `[0]` retrieves the first element. 
 
+> What is the ID of the guard you chose multiplied by the minute you chose?
+
 The answer can then be calculated with: `guard * minute`
 
 #### Part two
 
-> Strategy 2: Of all guards, which guard is most frequently asleep on the same minute?
+> Strategy 2: Of all guards, which guard is most frequently asleep on the same minute? What is the ID of the guard you chose multiplied by the minute you chose?
 
-Solving this puzzle can be done by looping through all the guards inside the frequency dict. For each guard retrieve the minute with the heigest frequency and store that with the score (guard ID * minute). At the end sort the list and retrieve score associated with the highest frequency.
+Solving this puzzle can be done by looping through all the `guards` inside the `frequency` dict. For each `guard` retrieve the `minute` with the heigest `frequency` and store that with the `score` (guard ID * minute). At the end sort the list and retrieve score associated with the highest `frequency`.
 
 ```
 def part_2(frequency):
@@ -146,6 +149,16 @@ def part_2(frequency):
     return sorted(items)[-1][1]
 ```
 
+By default `sorted()` will look at the first value inside the set to sort the list of sets. And sorts from low to high.
+```
+before
+[(14, 21813), (14, 51553), (13, 14246), (12, 36937), (7, 69107), (19, 37886), (12, 58781), (7, 2196), (12, 126059), (13, 125467), (16, 35472), (8, 71072), (13, 84989), (5, 71842), (9, 38379), (10, 99293), (17, 35184), (5, 3164), (8, 62616), (7, 116659)]
+
+after sorted()
+[(5, 3164), (5, 71842), (7, 2196), (7, 69107), (7, 116659), (8, 62616), (8, 71072), (9, 38379), (10, 99293), (12, 36937), (12, 58781), (12, 126059), (13, 14246), (13, 84989), (13, 125467), (14, 21813), (14, 51553), (16, 35472), (17, 35184), (19, 37886)]
+```
+
+The wanted value is at the end of the list, index `[-1]` and is the 2nd item in the set, index `[1]`.
 
 
 #### Running the code
@@ -160,12 +173,11 @@ if __name__ == "__main__":
     print(f'Part 1 Answer: {part_1(totals, frequency)}')
     print(f'Part 2 Answer: {part_2(frequency)}')
 ```
-
-![Apr-08-2019 04-50-41.gif](https://cdn.steemitimages.com/DQmQjDF8GUirbFaNMcZj3LUmPYDupBu2ZyaTNvPFB26H25h/Apr-08-2019%2004-50-41.gif)
+<br>
+![Screenshot 2019-04-11 at 21.31.21.png](https://cdn.steemitimages.com/DQme8hsQJ6oUFrCxX8oiVsfCJ3W8tXqamtvk4rASL92RM1q/Screenshot%202019-04-11%20at%2021.31.21.png)
 
 #### Curriculum
-[Part 1](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-1---solving-puzzles-from-advent-of-code-2018), [Part 2](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-2---solving-puzzles-from-advent-of-code-2018),
-[Part 3](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-3---solving-puzzles-from-advent-of-code-2018)
+[Part 1](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-1---solving-puzzles-from-advent-of-code-2018), [Part 2](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-2---solving-puzzles-from-advent-of-code-2018), [Part 3](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-3---solving-puzzles-from-advent-of-code-2018)
 
 ---
 
