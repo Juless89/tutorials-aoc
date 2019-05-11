@@ -162,7 +162,7 @@ return max(counts.values())
 <br>
 Returns the maximum value sorted by the values of the dict.
 
-<center>![May-11-2019 21-23-02.gif](https://cdn.steemitimages.com/DQmR7gkMf51QWCQ9AeS7fR7sU4sPwb3kZzq58AdUUJbxBtA/May-11-2019%2021-23-02.gif)</center>
+![May-11-2019 21-23-02.gif](https://cdn.steemitimages.com/DQmR7gkMf51QWCQ9AeS7fR7sU4sPwb3kZzq58AdUUJbxBtA/May-11-2019%2021-23-02.gif)
 
 
 
@@ -188,7 +188,7 @@ for y in range(y0, y1 + 1):
 <br>
 `sum(distance(x, y, px, py) for px, py in points)` takes the coordinates for each location and calculates the distance from the point to each location. These values are then added together with `sum()`.
 
-<center>![May-11-2019 21-23-30.gif](https://cdn.steemitimages.com/DQmThHZKrGZW2YpXL66JZsecuR2JimWd72xum4qiQhaLaj2/May-11-2019%2021-23-30.gif)</center>
+![May-11-2019 21-23-30.gif](https://cdn.steemitimages.com/DQmThHZKrGZW2YpXL66JZsecuR2JimWd72xum4qiQhaLaj2/May-11-2019%2021-23-30.gif)
 
 #### Running the code
 
@@ -204,7 +204,7 @@ if __name__ == "__main__":
     print(f'Part 2 Answer: {part_2(string)}')
 ```
 <br>
-<center>![Screenshot 2019-05-11 at 21.25.37.png](https://cdn.steemitimages.com/DQmUgHqeqMnH9QQCTCSDxLCPpgXddvVYCNi1ANZTsvu1L4N/Screenshot%202019-05-11%20at%2021.25.37.png)</center>
+![Screenshot 2019-05-11 at 21.25.37.png](https://cdn.steemitimages.com/DQmUgHqeqMnH9QQCTCSDxLCPpgXddvVYCNi1ANZTsvu1L4N/Screenshot%202019-05-11%20at%2021.25.37.png)
 
 #### Curriculum
 [Part 1](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-1---solving-puzzles-from-advent-of-code-2018), [Part 2](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-2---solving-puzzles-from-advent-of-code-2018), [Part 3](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-3---solving-puzzles-from-advent-of-code-2018), [Part 4](https://steemit.com/utopian-io/@steempytutorials/learn-how-to-program-with-python-4---solving-puzzles-from-advent-of-code-2018), [Part 5](https://steemit.com/utopian-io/@steempytutorials/-learn-how-to-program-with-python-4---solving-puzzles-from-advent-of-code-2018)
